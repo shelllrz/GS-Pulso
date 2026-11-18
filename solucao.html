@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#071a22">
+  <meta name="description" content="Consulte comunicados de água e relatos do seu bairro, com a origem identificada.">
+  <title>Consultar bairro — Pulso</title>
+  <link rel="icon" href="img/mark.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles-base.css">
+  <script src="js/data.js" defer></script>
+  <script src="js/app.js" defer></script>
+</head>
+<body data-page="status">
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+  <div class="app-frame">
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Pulso, início"><img src="img/mark.svg" width="40" height="40" alt=""><span>PULSO</span></a>
+      <nav class="primary-nav" id="primary-navigation" aria-label="Navegação principal">
+        <a data-active-nav="status" href="solucao.html">Consultar bairro</a>
+        <a data-active-nav="relatos" href="equipe.html">Relatar ocorrência</a>
+        <a data-active-nav="apoio" href="impacto.html">Pontos de apoio</a>
+        <a data-active-nav="sobre" href="sobre.html">Como funciona</a>
+      </nav>
+      <a class="header-profile" href="index.html#perfil">Meu perfil <span aria-hidden="true">↗</span></a>
+      <button class="menu-toggle" id="menu-toggle" type="button" aria-controls="primary-navigation" aria-expanded="false" aria-label="Abrir navegação"><span></span><span></span></button>
+    </header>
+
+    <main id="conteudo" class="page-content page-content--service">
+      <section class="service-page-intro" aria-labelledby="status-page-title">
+        <div>
+          <span class="eyebrow">CONSULTA DO SEU TERRITÓRIO</span>
+          <h1 id="status-page-title">O que acontece<br><span>no seu bairro?</span></h1>
+          <p>Veja primeiro os comunicados oficiais. Depois, consulte as observações de moradores e os pontos de apoio.</p>
+        </div>
+        <div class="location-pill"><span>BAIRRO CONSULTADO</span><strong data-current-location></strong></div>
+      </section>
+
+      <section class="content-section content-section--service" aria-labelledby="official-title">
+        <div class="service-section-heading service-section-heading--plain">
+          <span class="service-step-number" aria-hidden="true">1</span>
+          <div>
+            <span class="eyebrow">COMUNICADO OFICIAL</span>
+            <h2 id="official-title">Status do abastecimento</h2>
+            <p>Confira a área, a data e a fonte de cada informação.</p>
+          </div>
+        </div>
+        <div id="official-status" aria-live="polite"></div>
+      </section>
+
+      <section class="content-section content-section--service" aria-labelledby="next-actions-title">
+        <div class="service-section-heading service-section-heading--plain">
+          <div>
+            <span class="eyebrow">O QUE VOCÊ PRECISA?</span>
+            <h2 id="next-actions-title">Próximos passos</h2>
+          </div>
+        </div>
+        <div class="service-next-actions">
+          <a href="equipe.html" class="service-action"><span class="service-action__icon" aria-hidden="true">＋</span><span><strong>Relatar uma ocorrência</strong><small>Informe falta d’água, baixa pressão ou retorno.</small></span><b aria-hidden="true">→</b></a>
+          <a href="impacto.html" class="service-action"><span class="service-action__icon" aria-hidden="true">⌖</span><span><strong>Encontrar pontos de apoio</strong><small>Veja locais de água confirmados para sua região.</small></span><b aria-hidden="true">→</b></a>
+        </div>
+      </section>
+
+      <section class="content-section content-section--service" aria-labelledby="reports-title">
+        <div class="service-section-heading service-section-heading--plain">
+          <span class="service-step-number" aria-hidden="true">2</span>
+          <div>
+            <span class="eyebrow">CONTRIBUIÇÕES DA VIZINHANÇA</span>
+            <h2 id="reports-title">Relatos de moradores <span class="count-pill" id="report-count">00</span></h2>
+            <p>Relatos locais são contribuições, não confirmação oficial.</p>
+          </div>
+          <a class="button button--outline" href="equipe.html">Registrar relato <span aria-hidden="true">→</span></a>
+        </div>
+        <div data-report-feed aria-live="polite"></div>
+        <p class="micro-note">Os relatos ficam apenas no navegador em que foram registrados; não são enviados à equipe nem compartilhados com outros aparelhos.</p>
+      </section>
+
+      <details class="preference-disclosure">
+        <summary>Quero guardar minha preferência para acompanhar avisos</summary>
+        <div class="preference-disclosure__body">
+          <p>No site atual, essa preferência fica somente neste navegador e não envia notificações com o site fechado.</p>
+          <form id="preference-form" class="notify-form">
+            <label class="consent-row"><input id="updates-opt-in" type="checkbox"><span>Quero acompanhar os avisos do bairro do meu perfil.</span></label>
+            <button class="button button--signal" type="submit">Salvar preferência</button>
+            <p id="preference-status" class="inline-status" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </details>
+    </main>
+
+    <footer class="site-footer">
+      <a class="brand brand--footer" href="index.html"><img src="img/mark.svg" width="32" height="32" alt=""><span>PULSO</span></a>
+      <p>Os comunicados disponíveis são conferidos e cadastrados manualmente. A cobertura varia por localidade.</p>
+      <a href="sobre.html">Como funciona</a>
+    </footer>
+  </div>
+</body>
+</html>

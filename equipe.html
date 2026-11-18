@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#071a22">
+  <meta name="description" content="Registre o que você está observando sobre a água no seu bairro.">
+  <title>Relatar ocorrência — Pulso</title>
+  <link rel="icon" href="img/mark.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles-base.css">
+  <script src="js/data.js" defer></script>
+  <script src="js/app.js" defer></script>
+</head>
+<body data-page="relatos">
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+  <div class="app-frame">
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Pulso, início"><img src="img/mark.svg" width="40" height="40" alt=""><span>PULSO</span></a>
+      <nav class="primary-nav" id="primary-navigation" aria-label="Navegação principal">
+        <a data-active-nav="status" href="solucao.html">Consultar bairro</a>
+        <a data-active-nav="relatos" href="equipe.html">Relatar ocorrência</a>
+        <a data-active-nav="apoio" href="impacto.html">Pontos de apoio</a>
+        <a data-active-nav="sobre" href="sobre.html">Como funciona</a>
+      </nav>
+      <a class="header-profile" href="index.html#perfil">Meu perfil <span aria-hidden="true">↗</span></a>
+      <button class="menu-toggle" id="menu-toggle" type="button" aria-controls="primary-navigation" aria-expanded="false" aria-label="Abrir navegação"><span></span><span></span></button>
+    </header>
+
+    <main id="conteudo" class="page-content page-content--service">
+      <section class="service-page-intro" aria-labelledby="report-page-title">
+        <div>
+          <span class="eyebrow">RELATO DO SEU BAIRRO</span>
+          <h1 id="report-page-title">O que você está<br><span>observando?</span></h1>
+          <p>Conte o que acontece com a água. O relato é identificado como contribuição de morador, não como aviso oficial.</p>
+        </div>
+        <div class="location-pill"><span>RELATO VINCULADO A</span><strong data-current-location></strong></div>
+      </section>
+
+      <p class="report-profile-note">O relato será associado ao bairro do seu perfil. <a href="index.html#perfil">Ver ou alterar minha localidade <span aria-hidden="true">→</span></a></p>
+
+      <div class="report-layout report-layout--service">
+        <form class="report-form report-form--service" id="report-form" novalidate>
+          <div class="service-section-heading service-section-heading--plain">
+            <span class="service-step-number" aria-hidden="true">1</span>
+            <div>
+              <span class="eyebrow">SUA OBSERVAÇÃO</span>
+              <h2>Escolha o que está acontecendo</h2>
+              <p>Selecione a situação mais próxima do que você percebeu.</p>
+            </div>
+          </div>
+          <div class="field">
+            <label for="report-type">Situação observada <span>obrigatório</span></label>
+            <select id="report-type" name="type" required>
+              <option value="">Selecione uma situação</option>
+              <option value="sem-agua">Estou sem água</option>
+              <option value="pressao-baixa">A pressão está baixa</option>
+              <option value="retorno-gradual">A água está voltando</option>
+              <option value="outro">Outra situação</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="report-description">Detalhes <span>opcional</span></label>
+            <textarea id="report-description" name="description" maxlength="240" rows="4" placeholder="Descreva somente o que observou."></textarea>
+            <small>Até 240 caracteres. Não inclua endereço, telefone ou outros dados pessoais.</small>
+          </div>
+          <button class="button button--blue" type="submit">Salvar relato neste navegador <span aria-hidden="true">→</span></button>
+          <p id="report-status" class="inline-status" role="status" aria-live="polite"></p>
+        </form>
+
+        <aside class="report-explainer report-explainer--service">
+          <span class="eyebrow">IMPORTANTE</span>
+          <h2>O que acontece com seu relato?</h2>
+          <ul class="report-steps">
+            <li>Fica salvo apenas neste navegador.</li>
+            <li>Não é enviado aos seus colegas ou a outros moradores.</li>
+            <li>Não é verificado por uma equipe nesta versão.</li>
+            <li>Não substitui um comunicado oficial do prestador.</li>
+          </ul>
+          <p>O filtro associa o relato ao bairro do perfil que você cadastrou.</p>
+          <a href="index.html#perfil" class="text-link">Ver ou alterar meu perfil <span aria-hidden="true">→</span></a>
+        </aside>
+      </div>
+
+      <section class="content-section content-section--service" aria-labelledby="reports-title">
+        <div class="service-section-heading service-section-heading--plain">
+          <span class="eyebrow">NESTE NAVEGADOR</span>
+          <div>
+            <h2 id="reports-title">Relatos do bairro <span class="count-pill" id="report-count">00</span></h2>
+            <p>Somente relatos salvos neste dispositivo.</p>
+          </div>
+        </div>
+        <div data-report-feed aria-live="polite"></div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <a class="brand brand--footer" href="index.html"><img src="img/mark.svg" width="32" height="32" alt=""><span>PULSO</span></a>
+      <p>Relatos são contribuições comunitárias. Não são enviados nem confirmados nesta versão.</p>
+      <a href="sobre.html">Como funciona</a>
+    </footer>
+  </div>
+</body>
+</html>

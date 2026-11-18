@@ -1,0 +1,28 @@
+{
+  "routes": [
+    {
+      "path": "/",
+      "title": "Painel Pulso"
+    },
+    {
+      "path": "/index.html",
+      "title": "Painel Pulso"
+    },
+    {
+      "path": "/solucao.html",
+      "title": "Status da água"
+    },
+    {
+      "path": "/impacto.html",
+      "title": "Pontos de apoio"
+    },
+    {
+      "path": "/equipe.html",
+      "title": "Relatos locais"
+    },
+    {
+      "path": "/sobre.html",
+      "title": "Sobre o Pulso"
+    }
+  ]
+}

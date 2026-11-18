@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#071a22">
+  <meta name="description" content="Entenda como o Pulso organiza informações sobre água por bairro e identifica suas fontes.">
+  <title>Como funciona — Pulso</title>
+  <link rel="icon" href="img/mark.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles-base.css">
+  <script src="js/data.js" defer></script>
+  <script src="js/app.js" defer></script>
+</head>
+<body data-page="sobre">
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+  <div class="app-frame">
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Pulso, início"><img src="img/mark.svg" width="40" height="40" alt=""><span>PULSO</span></a>
+      <nav class="primary-nav" id="primary-navigation" aria-label="Navegação principal">
+        <a data-active-nav="status" href="solucao.html">Consultar bairro</a>
+        <a data-active-nav="relatos" href="equipe.html">Relatar ocorrência</a>
+        <a data-active-nav="apoio" href="impacto.html">Pontos de apoio</a>
+        <a data-active-nav="sobre" href="sobre.html">Como funciona</a>
+      </nav>
+      <a class="header-profile" href="index.html#perfil">Meu perfil <span aria-hidden="true">↗</span></a>
+      <button class="menu-toggle" id="menu-toggle" type="button" aria-controls="primary-navigation" aria-expanded="false" aria-label="Abrir navegação"><span></span><span></span></button>
+    </header>
+
+    <main id="conteudo" class="page-content page-content--service">
+      <section class="service-page-intro" aria-labelledby="about-title">
+        <div>
+          <span class="eyebrow">COMO FUNCIONA</span>
+          <h1 id="about-title">Informação da água,<br><span>perto de você.</span></h1>
+          <p>O Pulso reúne o que foi informado sobre o abastecimento e organiza a consulta pelo seu bairro.</p>
+        </div>
+      </section>
+
+      <section class="about-story about-story--service">
+        <div>
+          <span class="eyebrow">SEU BAIRRO NO CENTRO</span>
+          <h2>O que se sabe, de onde veio e o que fazer a seguir.</h2>
+          <p>Informe sua localidade para consultar avisos oficiais, registrar uma observação local e encontrar pontos de apoio confirmados.</p>
+          <ol class="about-steps">
+            <li><strong>Consulte o status.</strong> Veja comunicados que se referem à sua região e confira a origem.</li>
+            <li><strong>Registre uma observação.</strong> Relatos de moradores ficam identificados separadamente; não são confirmação oficial.</li>
+            <li><strong>Procure apoio.</strong> Os pontos só aparecem quando endereço e funcionamento foram confirmados.</li>
+          </ol>
+        </div>
+        <aside class="about-source-panel" id="fontes">
+          <span class="eyebrow">FONTE DISPONÍVEL</span>
+          <h2>SAAE Indaiatuba</h2>
+          <p>Os avisos dessa localidade são consultados no canal oficial e cadastrados manualmente no Pulso. Ainda não há uma API operacional conectada.</p>
+          <a class="button button--outline" href="https://saae.sp.gov.br/servicos/avisos-de-interrupcao" target="_blank" rel="noopener noreferrer">Ver avisos oficiais ↗</a>
+        </aside>
+      </section>
+
+      <section class="future-note-panel" aria-labelledby="future-title">
+        <span class="eyebrow">OBJETIVO DO SERVIÇO COMPLETO</span>
+        <h2 id="future-title">Avisos do seu bairro, mesmo com o site fechado.</h2>
+        <p>Com backend e integração autorizada às fontes locais, o Pulso poderá compartilhar atualizações e enviar Push Web para quem consentir. Neste momento, o site não envia notificações com o site fechado nem compartilha dados entre navegadores.</p>
+      </section>
+
+    </main>
+
+    <footer class="site-footer">
+      <a class="brand brand--footer" href="index.html"><img src="img/mark.svg" width="32" height="32" alt=""><span>PULSO</span></a>
+      <p>Os comunicados disponíveis são conferidos e cadastrados manualmente. A cobertura varia por localidade.</p>
+      <a href="index.html#perfil">Consultar meu bairro</a>
+    </footer>
+  </div>
+</body>
+</html>

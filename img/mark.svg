@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title id="title">Símbolo Pulso</title>
+  <rect width="64" height="64" rx="16" fill="#071a22"/>
+  <circle cx="32" cy="32" r="23" fill="none" stroke="#48e1d1" stroke-opacity=".2" stroke-width="1.5"/>
+  <circle cx="32" cy="32" r="17" fill="none" stroke="#48e1d1" stroke-opacity=".38" stroke-width="1.5"/>
+  <path d="M32 14.5c-5.1 7-11.1 13.2-11.1 20.7a11.1 11.1 0 1 0 22.2 0c0-7.5-6-13.7-11.1-20.7Z" fill="#48e1d1"/>
+  <path d="M16 40.5h7.2l3.1-4.8 4.1 9.1 3.4-6.3h14.2" fill="none" stroke="#071a22" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"/>
+  <circle cx="48" cy="38.5" r="2.3" fill="#d5ff70"/>
+</svg>

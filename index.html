@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#071a22">
+  <meta name="description" content="Consulte avisos de abastecimento, relatos locais e pontos de apoio para o seu bairro.">
+  <title>Pulso — Informação da água no seu bairro</title>
+  <link rel="icon" href="img/mark.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles-base.css">
+  <link rel="stylesheet" href="css/styles-alerta.css">
+  <script src="js/data.js" defer></script>
+  <script src="js/app.js" defer></script>
+</head>
+<body data-page="inicio">
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+  <div class="app-frame">
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Pulso, início"><img src="img/mark.svg" width="40" height="40" alt=""><span>PULSO</span></a>
+      <nav class="primary-nav" id="primary-navigation" aria-label="Navegação principal">
+        <a data-active-nav="status" href="solucao.html">Consultar bairro</a>
+        <a data-active-nav="relatos" href="equipe.html">Relatar ocorrência</a>
+        <a data-active-nav="apoio" href="impacto.html">Pontos de apoio</a>
+        <a data-active-nav="sobre" href="sobre.html">Como funciona</a>
+      </nav>
+      <a class="header-profile" href="#perfil">Meu perfil <span aria-hidden="true">↗</span></a>
+      <button class="menu-toggle" id="menu-toggle" type="button" aria-controls="primary-navigation" aria-expanded="false" aria-label="Abrir navegação"><span></span><span></span></button>
+    </header>
+
+    <main id="conteudo" class="page-content page-content--service">
+      <section class="service-intro" aria-labelledby="home-title">
+        <div class="service-intro__copy">
+          <span class="eyebrow">INFORMAÇÃO LOCAL · PULSO</span>
+          <h1 id="home-title">A água do seu bairro,<br><span>sem rodeios.</span></h1>
+          <p>Consulte comunicados oficiais, veja relatos locais e encontre pontos de apoio confirmados.</p>
+        </div>
+        <ol class="service-steps" aria-label="Como começar">
+          <li class="service-steps__current"><span>1</span><strong>Informe seu bairro</strong></li>
+          <li><span>2</span><strong>Consulte o que está disponível</strong></li>
+        </ol>
+      </section>
+
+      <section class="profile-section profile-section--service" id="perfil" aria-labelledby="profile-title">
+        <div class="service-section-heading">
+          <span class="service-step-number" aria-hidden="true">1</span>
+          <div>
+            <span class="eyebrow">SEU TERRITÓRIO</span>
+            <h2 id="profile-title">Informe seu bairro</h2>
+            <p>Bairro, cidade e UF filtram as informações que você consulta.</p>
+          </div>
+        </div>
+
+        <div id="profile-summary" class="profile-summary" hidden>
+          <span class="profile-avatar" aria-hidden="true">⌖</span>
+          <div id="profile-summary-text" class="profile-summary__text"></div>
+          <div class="profile-summary__actions">
+            <button id="edit-profile" class="button button--outline" type="button">Alterar perfil</button>
+            <button id="delete-profile" class="text-button" type="button">Apagar perfil e dados locais</button>
+          </div>
+        </div>
+
+        <div id="profile-form-section">
+          <form id="profile-form" class="profile-form profile-form--service" novalidate>
+            <div class="profile-form__grid">
+              <div class="field">
+                <label for="neighborhood">Bairro ou comunidade <span>obrigatório</span></label>
+                <input id="neighborhood" name="neighborhood" type="text" maxlength="80" autocomplete="address-level3" placeholder="Ex.: Centro" required>
+                <small>Digite o nome usado na sua região.</small>
+              </div>
+              <div class="field">
+                <label for="city">Cidade <span>obrigatório</span></label>
+                <input id="city" name="city" type="text" maxlength="80" autocomplete="address-level2" placeholder="Sua cidade" required>
+              </div>
+              <div class="field field--state">
+                <label for="state">UF <span>obrigatório</span></label>
+                <input id="state" name="state" type="text" maxlength="2" minlength="2" autocomplete="address-level1" placeholder="SP" autocapitalize="characters" required>
+              </div>
+              <div class="field field--wide">
+                <label for="name">Como podemos chamar você? <span>obrigatório</span></label>
+                <input id="name" name="name" type="text" maxlength="80" autocomplete="name" placeholder="Seu nome" required>
+                <small>Usado para identificar seu perfil neste navegador.</small>
+              </div>
+              <div class="field">
+                <label for="cep">CEP <span>obrigatório</span></label>
+                <input id="cep" name="cep" type="text" inputmode="numeric" maxlength="9" autocomplete="postal-code" placeholder="00000-000" required>
+                <small>Fica no perfil; não é consultado em base externa.</small>
+              </div>
+            </div>
+
+            <details class="profile-optional">
+              <summary>Dados de residência <span>(opcionais)</span></summary>
+              <div class="profile-optional__fields">
+                <div class="field">
+                  <label for="residence-type">Tipo de residência</label>
+                  <select id="residence-type" name="residence-type"><option value="">Prefiro não informar</option><option value="Casa">Casa</option><option value="Apartamento">Apartamento</option></select>
+                </div>
+                <div class="field">
+                  <label for="residence-number">Número</label>
+                  <input id="residence-number" name="residence-number" type="text" maxlength="12" autocomplete="off" placeholder="Opcional">
+                </div>
+              </div>
+            </details>
+
+            <div class="profile-storage-note">
+              <span aria-hidden="true">i</span>
+              <p>Seu perfil fica somente neste navegador. Nesta versão, ele não é compartilhado com outros dispositivos.</p>
+            </div>
+            <label class="consent-row"><input id="profile-local-consent" type="checkbox" required><span>Entendi onde meu perfil fica armazenado.</span></label>
+            <button class="button button--blue" type="submit">Salvar perfil e consultar meu bairro <span aria-hidden="true">→</span></button>
+          </form>
+        </div>
+        <p id="profile-status" class="inline-status" role="status" aria-live="polite"></p>
+      </section>
+
+      <section class="content-section content-section--service" aria-labelledby="today-title">
+        <div class="service-section-heading">
+          <span class="service-step-number" aria-hidden="true">2</span>
+          <div>
+            <span class="eyebrow">STATUS DO ABASTECIMENTO</span>
+            <h2 id="today-title">Informação para o seu território</h2>
+            <p>A origem e a área de cada comunicado ficam visíveis.</p>
+          </div>
+        </div>
+        <div id="official-status" aria-live="polite" tabindex="-1"></div>
+        <div class="service-next-actions" aria-label="Próximas ações">
+          <a href="equipe.html" class="service-action"><span class="service-action__icon" aria-hidden="true">＋</span><span><strong>Relatar uma ocorrência</strong><small>Registre o que você está observando.</small></span><b aria-hidden="true">→</b></a>
+          <a href="impacto.html" class="service-action"><span class="service-action__icon" aria-hidden="true">⌖</span><span><strong>Ver pontos de apoio</strong><small>Consulte locais confirmados para seu bairro.</small></span><b aria-hidden="true">→</b></a>
+        </div>
+      </section>
+    </main>
+
+    <dialog id="demo-alert-dialog" class="demo-alert-dialog" aria-labelledby="demo-alert-title" aria-describedby="demo-alert-disclosure">
+      <div class="demo-alert-dialog__panel">
+        <div class="demo-alert-dialog__header">
+          <span id="demo-alert-badge" class="status-chip status-chip--demo">DEMONSTRAÇÃO · AVISO OFICIAL</span>
+          <span id="demo-alert-provider" class="source-code">SAAE Indaiatuba</span>
+        </div>
+        <h2 id="demo-alert-title">Exemplo de mensagem de alerta</h2>
+        <p id="demo-alert-location" class="demo-alert-dialog__location">Perfil consultado: bairro · cidade/UF</p>
+        <p id="demo-alert-message" class="demo-alert-dialog__message">Comunicado oficial sobre o abastecimento.</p>
+        <div class="status-details">
+          <div><span>PERÍODO DO COMUNICADO</span><strong id="demo-alert-period"></strong></div>
+          <div><span>ABRANGÊNCIA DA FONTE</span><strong id="demo-alert-area"></strong></div>
+        </div>
+        <details id="demo-alert-areas" class="demo-alert-dialog__areas">
+          <summary id="demo-alert-areas-summary">Ver áreas citadas no comunicado original</summary>
+          <ul id="demo-alert-areas-list" aria-label="Áreas citadas no comunicado"></ul>
+        </details>
+        <p id="demo-alert-disclosure" class="demo-alert-dialog__disclosure">Este exemplo se baseia em um comunicado oficial real. A lista mostra apenas as áreas citadas na publicação; o status filtrado do seu perfil aparece na página.</p>
+        <div class="demo-alert-dialog__actions">
+          <a id="demo-alert-source" class="text-link" href="https://saae.sp.gov.br/servicos/avisos-de-interrupcao" target="_blank" rel="noopener noreferrer">Abrir publicação original (opcional) <span aria-hidden="true">↗</span></a>
+          <button id="demo-alert-dismiss" class="button button--blue" type="button">Ver resultado do meu bairro</button>
+        </div>
+      </div>
+    </dialog>
+
+    <footer class="site-footer">
+      <a class="brand brand--footer" href="index.html"><img src="img/mark.svg" width="32" height="32" alt=""><span>PULSO</span></a>
+      <p>As fontes e a frequência de atualização variam por localidade. Os avisos disponíveis são conferidos e cadastrados manualmente.</p>
+      <a href="sobre.html">Como funciona</a>
+    </footer>
+  </div>
+</body>
+</html>
